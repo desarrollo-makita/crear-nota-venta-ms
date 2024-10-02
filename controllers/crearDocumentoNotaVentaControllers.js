@@ -19,7 +19,7 @@ async function crearDocumentoNotaVenta(req, res) {
   console.log("ordenPedido", oredenPedido);
   try {
     // Conecta a la base de datos
-    await connectToDatabase("BdQMakita");
+    await connectToDatabase("DTEBdQMakita");
 
     const {
       pedido: Correlativo,
@@ -29,7 +29,7 @@ async function crearDocumentoNotaVenta(req, res) {
     const request = new sql.Request();
     // Ejecuta el procedimiento almacenado con los parámetros
     result = await request.query`
-        EXEC Crea_NotaVenta_GE_Copia 
+        EXEC Crea_NotaVenta_OC3_Copia 
         @Empresa = 'Makita', 
         @TipoDocumento = ${TipoDocumento.trim()}, 
         @Correlativo = ${Correlativo}, 
